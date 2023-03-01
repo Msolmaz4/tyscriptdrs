@@ -4,17 +4,18 @@ import React, { useState } from 'react'
 interface To {
     todo:string
     setTodo:React.Dispatch<React.SetStateAction<string>>
+    addTodos :()=>void
 }
 
 
-const Input = ({todo,setTodo}:To) => {
+const Input = ({todo,setTodo,addTodos}:To) => {
 
-    
+    console.log(todo,'input')
  
   return (
     <div>
-        <input type="text"  placeholder='yaz'/>
-        <button>Tikla baba</button>
+        <input type="text"  value={todo} onChange={e=>setTodo(e.target.value)} placeholder='yaz'/>
+        <button onClick={addTodos}>Tikla baba</button>
     </div>
   )
 }
